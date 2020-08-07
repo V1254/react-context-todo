@@ -22,3 +22,24 @@
     font-size: 14px;
     text-align: left;
 }
+
+.todo button {
+    cursor: pointer;
+    height: 24px;
+    line-height: 16px;
+    padding: 0 1.5rem;
+    color: #424242;
+    letter-spacing: .8px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+    color: #FFF;
+    background-color: #df10c3;
+    width: 100%;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import Todo from "./Todo/Todo";
 
-const TodoList = ({ items }) => {
+const TodoList = ({ items, ...otherProps }) => {
   return (
     <div
       style={{
@@ -9,7 +9,7 @@ const TodoList = ({ items }) => {
       }}
     >
       {items?.length
-        ? items.map((todo) => <Todo {...todo} key={todo.id} />)
+        ? items.map((todo) => <Todo {...todo} key={todo.id} {...otherProps} />)
         : "No Todo's to render "}
     </div>
   );

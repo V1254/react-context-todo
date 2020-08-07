@@ -9,8 +9,8 @@ const TodoPage = () => {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      title: 1,
-      body: 1,
+      title: "My Body",
+      body: "My Title",
     },
   ]);
 
@@ -25,10 +25,15 @@ const TodoPage = () => {
     ]);
   };
 
+  const deleteTodo = (id) => {
+    console.log(`deleteTodo called with ${id}`);
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="todo-page">
       <TodoForm saveTodo={saveTodo} />
-      <TodoList items={todos} />
+      <TodoList items={todos} deleteTodo={deleteTodo} />
     </div>
   );
 };
