@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 
-const TodoForm = () => {
+const TodoForm = ({ saveTodo }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`submitting ${title} and ${body}`);
+    saveTodo({
+      title,
+      body,
+    });
     setTitle("");
     setBody("");
   };
