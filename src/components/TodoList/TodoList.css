@@ -1,0 +1,7 @@
+.todo-list {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: center;
+}

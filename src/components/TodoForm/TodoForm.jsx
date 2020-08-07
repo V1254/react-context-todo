@@ -21,13 +21,18 @@ const TodoForm = () => {
   };
 
   return (
-    <form className="todo-form" onSubmit={handleSubmit}>
+    <form
+      className="todo-form"
+      onSubmit={handleSubmit}
+      style={{ width: "100%", textAlign: "center" }}
+    >
       <input
         type="text"
         id="title"
         placeholder="Todo Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        required
       />
       <input
         type="text"
@@ -35,6 +40,7 @@ const TodoForm = () => {
         placeholder="Todo Body"
         value={body}
         onChange={(e) => setBody(e.target.value)}
+        required
       />
       <button>Add Todo</button>
     </form>

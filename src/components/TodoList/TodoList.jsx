@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Todo from "./Todo/Todo";
 import { TodoContext } from "../../context/Todos/Provider";
 import { DELETE_TODO } from "../../context/Todos/actionTypes";
+import "./TodoList.css";
 
 const TodoList = () => {
   const { todos, dispatch } = useContext(TodoContext);
@@ -17,11 +18,7 @@ const TodoList = () => {
   };
 
   return (
-    <div
-      style={{
-        marginTop: "2em",
-      }}
-    >
+    <div className="todo-list">
       {todos?.length
         ? todos.map((todo) => <Todo {...todo} key={todo.id} onDelete={onDelete} />)
         : "No Todo's to render "}
