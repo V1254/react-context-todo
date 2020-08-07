@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { SAVE_TODO } from "../../context/Todos/actionTypes";
+import { TodoContext } from "../../context/Todos/Provider";
 
-const TodoForm = ({ saveTodo }) => {
+const TodoForm = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const { dispatch } = useContext(TodoContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`submitting ${title} and ${body}`);
-    saveTodo({
-      title,
-      body,
+    dispatch({
+      type: SAVE_TODO,
+      payload: {
+        title,
+        body,
+      },
     });
     setTitle("");
     setBody("");

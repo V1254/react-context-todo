@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import Todo from "./Todo/Todo";
+import { TodoContext } from "../../context/Todos/Provider";
+import { DELETE_TODO } from "../../context/Todos/actionTypes";
 
-const TodoList = ({ items, ...otherProps }) => {
+const TodoList = () => {
+  const { todos, dispatch } = useContext(TodoContext);
+
+  const onDelete = (id) => {
+    console.log(`ondelete reveiced ${id}`);
+    dispatch({
+      type: DELETE_TODO,
+      payload: {
+        id,
+      },
+    });
+  };
+
   return (
     <div
       style={{
         marginTop: "2em",
       }}
     >
-      {items?.length
-        ? items.map((todo) => <Todo {...todo} key={todo.id} {...otherProps} />)
+      {todos?.length
+        ? todos.map((todo) => <Todo {...todo} key={todo.id} onDelete={onDelete} />)
         : "No Todo's to render "}
     </div>
   );
